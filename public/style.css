@@ -1,0 +1,291 @@
+:root {
+    --dark-blue-color: rgba(18,25,82,1);
+    --dark-purple-color: rgba(110,37,144,1);
+    --black-color: rgb(0, 0, 0);
+    --white-color: rgb(221, 230, 240);
+    --hover-color: rgb(156, 59, 221);
+    --gray-color: rgb(39, 37, 43);
+    --green-color: rgb(116, 255, 111);
+    --black-shadow: rgba(0, 0, 0, 0.150);
+    --blue-color: rgb(103, 199, 255);
+    --red-color: rgb(255, 103, 103);
+    --text-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html, body, div, ul, li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    background: var(--dark-purple-color);
+    background: linear-gradient(0deg, rgba(110,37,144,1) 0%, rgba(18,25,82,1) 100%);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.div-container {
+    position: fixed;
+    bottom: 1em;
+    width: 100%;
+    padding: 1em 0;
+}
+
+.div-container header {
+    display: flex;
+    width: 100%;
+}
+
+#form {
+    display: flex;
+    width: 100%;
+    padding: 0 2em;
+    box-sizing: border-box; /* Garante que o padding não afete a largura total */
+}
+
+#input {
+    background-color: var(--white-color);
+    color: var(--black-color);
+    padding: 0.7em 1em;
+    border-radius: 5em;
+    width: 100%;
+    font-size: 1.3em;
+    border: none;
+    transition: ease-in-out 200ms;
+    box-sizing: border-box; /* Garante que o padding não afete a largura total */
+}
+
+#input:focus {
+    outline: 0.2em solid var(--hover-color);
+    color: var(--white-color);
+    background-color: var(--black-color);
+}
+
+.button-send {
+    width: 2.5em;
+    height: 2.5em; 
+    border-radius: 50%; 
+    font-size: 1.6em; 
+    text-align: center;
+    font-weight: 1000;
+    background-color: var(--white-color);
+    margin-left: 0.5em;
+    transition: ease-in-out 200ms;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-send:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: var(--black-color);
+    color: var(--white-color);
+    outline: 0.1em solid var(--hover-color);
+}
+
+#msg {
+    position: fixed;
+    top: 6em;
+    overflow: auto;
+    height: 78vh;
+    width: 100%;
+    margin: 0 3em;
+}
+
+#msg li {
+    color: var(--white-color);
+    margin: 1.5em 0;
+    font-family: var(--text-font);
+    list-style-type: none;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+#msg li div {
+    background-color: var(--black-shadow);
+    max-width: 50%;
+    padding: 1em;
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
+
+#msg .user {
+    color: var(--green-color);
+    margin-left: 45%;
+}
+
+#msg .not-user {
+    color: var(--white-color);
+}
+
+#msg .not-user.new-member {
+    color: var(--blue-color);
+}
+
+#msg .not-user.user-disconected {
+    color: var(--red-color);
+}
+
+#msg li h4, #msg li strong, #msg li p {
+    display: inline;
+}
+
+#status {
+    background-color: var(--gray-color);
+    color: var(--white-color);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    padding: 1em 3em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    height: 6em;
+}
+
+#status div {
+    display: flex;
+    align-items: center;
+    /* margin-left: 5em; */
+}
+
+#status .user-div h2 {
+    font-family: var(--text-font);
+    margin-right: 0.5em;
+    font-size: 1.1em;
+}
+
+#status .user-div p {
+    font-family: var(--text-font);
+    margin-right: 0.5em;
+}
+
+#status .nickname-div h2 {
+    font-family: var(--text-font);
+    margin-right: 0.5em;
+    font-size: 1.3em;
+}
+
+#status .nickname-div p {
+    font-family: var(--text-font);
+    font-size: 1.3em;
+}
+
+#status button {
+    font-size: 0.9em;
+    color:var(--white-color);
+    background: none;
+    border: 0.1em solid var(--white-color);
+    transition: ease-in-out 200ms;
+    margin-left: 0.1em;
+    padding: 0.3em;
+}
+
+#status button:hover {
+    color:var(--hover-color);
+    background-color: var(--white-color);
+    border: 0.1em solid var(--hover-color);
+    cursor: pointer;
+    scale: 1.2;
+}
+
+.hidden {
+    display: none;
+}
+
+#status input {
+    background-color: var(--white-color);
+    color: var(--black-color);
+    padding: 0.5em;
+    border-radius: 5em;
+    font-size: 0.9em;
+    border: none;
+    transition: ease-in-out 200ms;
+    box-sizing: border-box; /* Garante que o padding não afete a largura total */
+}
+
+#status input:focus {
+    outline: 0.1em solid var(--hover-color);
+    color: var(--white-color);
+    background-color: var(--black-color);
+}
+
+#status .margin-btn {
+    margin-left: 0.8em;
+}
+
+@media (max-width: 550px) {
+    #msg {
+        margin: 0 1.5em;
+    }
+
+    #status .user-div {
+        display: none;
+    }
+
+    #status {
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 0.5em 0.5em;
+        flex-wrap: wrap;
+        height: 3em;
+    }
+
+    #status .nickname-div {
+        flex-wrap: wrap;
+    }
+
+    #status .nickname-div h2, #status .nickname-div p {
+        margin: 0.3em;
+        font-size: 0.9em;
+    }
+
+    #status button {
+        font-size: 0.8em;
+    }
+
+    #status input {
+        font-size: 0.8em;
+    }
+
+    #form {
+        padding: 0.5em;
+    }
+
+    #input {
+        font-size: 1em;
+        width: 90%;
+    }
+
+    .div-container {
+        padding: 0;
+        bottom: 0.5em;
+    }
+
+    .button-send {
+        width: 1.7em;
+        height: 1.7em;
+        margin-left: 0.3em;
+    }
+}
+
+@media (max-width: 1000px) {
+    #status {
+        padding: 0.7em 1em;
+        height: 5em;
+    }
+
+    #status .nickname-div p, #status .nickname-div h2  {
+        font-size: 1em;
+    }
+}
