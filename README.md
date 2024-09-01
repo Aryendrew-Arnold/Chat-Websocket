@@ -1,5 +1,5 @@
 
-# Websocket Live CHat
+# Websocket Live Chat
 
 ## A live chat made using a Websocket server.
 
@@ -25,7 +25,7 @@
 
 ## HTML structure:
 * The page starts with a "header", which contains the user ID on the left side. On the right side, there is an "input" for the user to set/change their nickname.
-* In the center of the page there is a "ul"(unordered list), which stores and displays the messages sent by the server in "li" tags.
+* In the center of the page there is a "ul"(unordered list), which stores and displays the messages sent by the client in "li" tags.
 * At the bottom is the input that the user will use to write their messages, and to the left there is a button to send them.
 
 ## CSS style:
