@@ -15,7 +15,7 @@ $(function(){
             if (userNick === '') {
                 userNick = userID;
                 nickname.innerHTML = `${userNick}`;
-                nickBtn.innerText = 'Alterar';
+                nickBtn.innerText = 'Change';
             }
             e.preventDefault();
             socket.emit('CHAT MSG', input.value);
@@ -43,11 +43,11 @@ $(function(){
     });
 
     nickBtn.addEventListener('click', (e) => {
-        nickname.innerHTML = `<input type="text" autofocus placeholder="Defina o seu apelido">`;
+        nickname.innerHTML = `<input type="text" autofocus placeholder="Set your nickname">`;
         
         const confirmBtn = document.createElement('button');
         confirmBtn.classList.add('margin-btn');
-        confirmBtn.innerText = 'Confirmar';
+        confirmBtn.innerText = 'Confirm';
         nickname.insertAdjacentElement('afterend', confirmBtn);
         
         nickBtn.classList.add('hidden');
@@ -62,7 +62,7 @@ $(function(){
             nickBtn.classList.remove('hidden');
             nickBtn.classList.add('margin-btn');
             confirmBtn.remove();
-            nickBtn.innerText = 'Alterar';
+            nickBtn.innerText = 'Change';
     
             socket.emit('FRIEND_NICK', userNick, userID);
         });
@@ -72,21 +72,21 @@ $(function(){
         let previousNick = users[userID] || oldNick || userID;
         users[userID] = newName;
         if (previousNick !== newName) {
-            msgDiv.innerHTML += `<li><div class="not-user"><strong>${previousNick}</strong> <p>alterou o seu apelido para</p> <strong>${newName}.</strong></div></li>`;
+            msgDiv.innerHTML += `<li><div class="not-user"><strong>${previousNick}</strong> <p>changed his nickname to</p> <strong>${newName}.</strong></div></li>`;
             scrollToBottom(); // Rolar para baixo após enviar mensagem
         };
     });
 
     socket.on("NEW USER MSG", (user) => {
-        msgDiv.innerHTML += `<li><div class="not-user new-member"><strong>${user} se conectou ao chat.</strong></div></li>`;
+        msgDiv.innerHTML += `<li><div class="not-user new-member"><strong>${user} connected to the chat.</strong></div></li>`;
         scrollToBottom(); // Rolar para baixo após enviar mensagem
     });
 
     socket.on('USER DISCONNECTED', (user) => {
         if (!users[user]) {
-            msgDiv.innerHTML += `<li><div class="not-user user-disconected"><strong>${user} se desconectou.</strong></div></li>`;
+            msgDiv.innerHTML += `<li><div class="not-user user-disconected"><strong>${user} disconnected.</strong></div></li>`;
         } else {
-            msgDiv.innerHTML += `<li><div class="not-user user-disconected"><strong>${users[user]} se desconectou.</strong></div></li>`;
+            msgDiv.innerHTML += `<li><div class="not-user user-disconected"><strong>${users[user]} disconnected.</strong></div></li>`;
         }
         delete users[user];
         scrollToBottom(); // Rolar para baixo após enviar mensagem
